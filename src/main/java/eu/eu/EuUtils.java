@@ -21,7 +21,7 @@ public class EuUtils {
 	 * @param n
 	 * @return
 	 */
-	static boolean isPrime(long n) {
+	static boolean isPrimeMuchSlower(long n) {
 		//any negative #,0 and 1
 		if(n<2) return false;
 	   
@@ -31,4 +31,20 @@ public class EuUtils {
 	    }
 	    return true;
 	}
+	
+	/**Finally, we know 2 is the “oddest” prime – it happens to be the only even prime number. Because of this, we need only check 2 separately, then traverse odd numbers up to the square root of n. In the end, our code will resemble this:
+       found here: http://www.mkyong.com/java/how-to-determine-a-prime-number-in-java/
+	 *
+	 */
+		//checks whether an int is prime or not.
+	static	boolean isPrime(long n) {
+		    //check if n is a multiple of 2
+		    if (n%2==0) return false;
+		    //if not, then just check the odds
+		    for(int i=3;i*i<=n;i+=2) {
+		        if(n%i==0)
+		            return false;
+		    }
+		    return true;
+		}
 }

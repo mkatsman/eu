@@ -23,16 +23,16 @@ public class Problem10 {
 			if(i%100000==0){
 				//print current item and the time it took to process it.
 				//This will increase he total time of execution, but it is entertaining.
-			    totalTime = (System.currentTimeMillis() -start)/1000;
+			    totalTime = (System.currentTimeMillis() -start);
 				
-			    System.out.println("current "+i +" total time in seconds: "+ totalTime );
+			    System.out.println("current "+i +" total time in milliseconds: "+ totalTime );
 				
 			}
 			if (EuUtils.isPrime(i)) 
 				total = total+i;
 		}
 		
-		System.out.println("total time in seconds is: "+ totalTime);	
+		System.out.println("total time in milliseconds is: "+ totalTime);	
 		return total;
 	
 		
