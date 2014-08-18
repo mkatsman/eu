@@ -9,26 +9,32 @@ package eu.eu;
 public class Problem10 {
 
 	public static void main(String[] args) {
-		System.out.println("Hello World!");
+		System.out.println(Problem10.sumOfPrimesUnderUpper(1000000));
 	}
 
-	public static int sumOfPrimes(int upper){
+	public static long sumOfPrimesUnderUpper(int upper){
 		
-		int total =0;
+		long total =0;
+		long start = System.currentTimeMillis();
+		float totalTime = 0;
 		for(int i=2; i<=upper; i++)
+			
 		{
-			if (isPrime(i)) total++;
+			if(i%100000==0){
+				//print current item and the time it took to process it.
+				//This will increase he total time of execution, but it is entertaining.
+			    totalTime = (System.currentTimeMillis() -start)/1000;
+				
+			    System.out.println("current "+i +" total time in seconds: "+ totalTime );
+				
+			}
+			if (EuUtils.isPrime(i)) 
+				total = total+i;
 		}
+		
+		System.out.println("total time in seconds is: "+ totalTime);	
 		return total;
 	
 		
-	}
-	//checks whether an int is prime or not.
-	static boolean isPrime(int n) {
-	    for(int i=2;i<n;i++) {
-	        if(n%i==0)
-	            return false;
-	    }
-	    return true;
 	}
 }
