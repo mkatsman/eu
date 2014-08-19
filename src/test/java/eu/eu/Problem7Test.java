@@ -16,6 +16,13 @@ public class Problem7Test {
 		Assert.assertEquals(13, Problem7.findNthPrime(6));
 		Assert.assertEquals(17, Problem7.findNthPrime(7));
 	}
+	
+	/**
+	 * Test the algorithm using list of sequential primes.
+	 * Given the list of primes in order, we can find and compare any nth item with the number from the list 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	@Test
 	public void TestSequentialPrimeIndexes() throws FileNotFoundException, IOException {
 

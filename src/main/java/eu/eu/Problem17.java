@@ -4,22 +4,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
-
-If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?
-
-
+ * If the numbers 1 to 5 are written out in words: one, two, three, four, five,
+ * then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
+ * 
+ * If all the numbers from 1 to 1000 (one thousand) inclusive were written out
+ * in words, how many letters would be used?
+ * 
+ * 
  * @author mkatsman
- *
+ * 
  */
 public class Problem17 {
 
-	public static void main(String[] args){
-		 getLiteralCount(5);		
-       getLiteralCount(1000);		
+	public static void main(String[] args) {
+		getLiteralCount(5);
+		long start = System.currentTimeMillis();
 
+		getLiteralCount(1000);
+		System.out.println("Total time in milli seconds is "
+				+ (System.currentTimeMillis() - start));
 	}
-	
+
 	static Map<Integer, String> mapSingle = new HashMap<Integer, String>();
 	static Map<Integer, String> mapTeen = new HashMap<Integer, String>();
 	static Map<Integer, String> mapTen = new HashMap<Integer, String>();
@@ -39,7 +44,6 @@ public class Problem17 {
 		mapSingle.put(8, "eight");
 		mapSingle.put(9, "nine");
 
-		
 		mapTeen.put(10, "ten");
 		mapTeen.put(11, "eleven");
 		mapTeen.put(12, "twelve");
@@ -63,15 +67,13 @@ public class Problem17 {
 
 	}
 
-	public static String getLiteral
-	(Integer n) {
+	public static String getLiteral(Integer n) {
 		String result = "";
 		if (n == 0)
 			return "zero";
 		if (n == 1000)
 			return "onethousand";
-		
-		
+
 		if (0 < n && n < 10) {
 			result = mapSingle.get(n);
 
@@ -84,7 +86,7 @@ public class Problem17 {
 			result = getHundredsLiteral(n);
 
 		}
-	
+
 		return result;
 
 	}
@@ -98,14 +100,14 @@ public class Problem17 {
 		int singles = n - (hundreds * 100) - (tens * 10);
 
 		result = result + mapSingle.get(hundreds) + "hundred";
-		
-		String tensLiteral =  getTensLiteral(tens*10 + singles);
-		//no tens
-		if(tensLiteral.isEmpty()) 
+
+		String tensLiteral = getTensLiteral(tens * 10 + singles);
+		// no tens
+		if (tensLiteral.isEmpty())
 			return result;
-		else 
-			//and tens
-			result = result +"and"+ tensLiteral;
+		else
+			// and tens
+			result = result + "and" + tensLiteral;
 
 		return result;
 
@@ -117,25 +119,27 @@ public class Problem17 {
 		int singles = n - (tens * 10);
 
 		if (tens == 1) {
-			result = result + mapTeen.get(tens*10 + singles);
+			result = result + mapTeen.get(tens * 10 + singles);
 		} else {
 			result = result + mapTen.get(tens * 10) + mapSingle.get(singles);
 		}
 		return result;
-	}	
-	public static long getLiteralCount(Integer n){
-		long cnt = 0;
-		for(int i = 1; i <= n; i++){
-			cnt = cnt+ getLiteral(i).length();
-		}
-		System.out.println("Total string length for numbers from 1 to "+ n +" is " + cnt);
-	
-	 return cnt;
 	}
 
-	public static long getSingleLiteralCount(Integer n){
-			return getLiteral(n).length();
-		
+	public static long getLiteralCount(Integer n) {
+		long cnt = 0;
+		for (int i = 1; i <= n; i++) {
+			cnt = cnt + getLiteral(i).length();
+		}
+		System.out.println("Total string length for numbers from 1 to " + n
+				+ " is " + cnt);
+
+		return cnt;
 	}
-	
+
+	public static long getSingleLiteralCount(Integer n) {
+		return getLiteral(n).length();
+
+	}
+
 }
