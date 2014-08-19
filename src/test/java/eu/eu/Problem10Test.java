@@ -18,6 +18,8 @@ public class Problem10Test {
 	 * Make sure the algorithm matches given example.
 	 */
 	public void p10Test() {
+		
+		//make sure given example passes
 		Assert.assertEquals(new Long(17),
 				Long.valueOf(Problem10.sumOfPrimesUnderUpper(10)));
 		Assert.assertEquals(new Long(0),

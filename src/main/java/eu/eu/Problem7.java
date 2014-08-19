@@ -39,7 +39,7 @@ public class Problem7 {
 	
 		System.out.println("total time in milli seconds is: " + totalTime);
 		
-		return i;
+		return current;
 
 	}
 

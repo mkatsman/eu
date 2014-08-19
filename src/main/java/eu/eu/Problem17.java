@@ -15,8 +15,8 @@ If all the numbers from 1 to 1000 (one thousand) inclusive were written out in w
 public class Problem17 {
 
 	public static void main(String[] args){
-		 getLiteralsCount(5);		
-       getLiteralsCount(1000);		
+		 getLiteralCount(5);		
+       getLiteralCount(1000);		
 
 	}
 	
@@ -39,6 +39,7 @@ public class Problem17 {
 		mapSingle.put(8, "eight");
 		mapSingle.put(9, "nine");
 
+		
 		mapTeen.put(10, "ten");
 		mapTeen.put(11, "eleven");
 		mapTeen.put(12, "twelve");
@@ -50,10 +51,10 @@ public class Problem17 {
 		mapTeen.put(18, "eighteen");
 		mapTeen.put(19, "nineteen");
 
-		mapTen.put(0, "zero");
+		mapTen.put(0, new String());
 		mapTen.put(20, "twenty");
 		mapTen.put(30, "thirty");
-		mapTen.put(40, "fourty");
+		mapTen.put(40, "forty");
 		mapTen.put(50, "fifty");
 		mapTen.put(60, "sixty");
 		mapTen.put(70, "seventy");
@@ -62,7 +63,8 @@ public class Problem17 {
 
 	}
 
-	public static String getLiterals(Integer n) {
+	public static String getLiteral
+	(Integer n) {
 		String result = "";
 		if (n == 0)
 			return "zero";
@@ -119,10 +121,10 @@ public class Problem17 {
 		}
 		return result;
 	}	
-	public static long getLiteralsCount(Integer n){
+	public static long getLiteralCount(Integer n){
 		long cnt = 0;
-		for(int i =1; i<=n;i++){
-			cnt = cnt+ getLiterals(i).length();
+		for(int i = 1; i <= n; i++){
+			cnt = cnt+ getLiteral(i).length();
 		}
 		System.out.println("Total string length for numbers from 1 to "+ n +" is " + cnt);
 	
