@@ -84,12 +84,7 @@ public class Problem17 {
 			result = getHundredsLiteral(n);
 
 		}
-		if (n > 0 && result.toLowerCase().endsWith("zero")) {
-
-			// get rid of something like eighthundredzero.
-			// strip off zero
-			result = result.substring(0, result.length() - 4);
-		}
+	
 		return result;
 
 	}
@@ -103,7 +98,14 @@ public class Problem17 {
 		int singles = n - (hundreds * 100) - (tens * 10);
 
 		result = result + mapSingle.get(hundreds) + "hundred";
-		result = result + getTensLiteral(tens*10 + singles);
+		
+		String tensLiteral =  getTensLiteral(tens*10 + singles);
+		//no tens
+		if(tensLiteral.isEmpty()) 
+			return result;
+		else 
+			//and tens
+			result = result +"and"+ tensLiteral;
 
 		return result;
 
@@ -130,4 +132,10 @@ public class Problem17 {
 	
 	 return cnt;
 	}
+
+	public static long getSingleLiteralCount(Integer n){
+			return getLiteral(n).length();
+		
+	}
+	
 }

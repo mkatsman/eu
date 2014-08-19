@@ -7,12 +7,20 @@ package eu.eu;
  * 
  */
 public class Problem10 {
+	
 
 	public static void main(String[] args) {
-		System.out.println(Problem10.sumOfPrimesUnderUpper(1000000));
+		
+		System.out.println("Faster isPrime algorithm:");
+		System.out.println("---------------------------");
+		System.out.println(Problem10.sumOfPrimesUnderUpper(2000000,true));
+		System.out.println("---------------------------");
+		System.out.println("Slower isPrime algorithm:");
+		System.out.println("---------------------------");
+		System.out.println(Problem10.sumOfPrimesUnderUpper(2000000,false));
 	}
 
-	public static long sumOfPrimesUnderUpper(int upper){
+	public static long sumOfPrimesUnderUpper(int upper, boolean faster){
 		
 		long total =0;
 		long start = System.currentTimeMillis();
@@ -28,7 +36,13 @@ public class Problem10 {
 			    System.out.println("current "+i +" total time in milliseconds: "+ totalTime );
 				
 			}
-			if (EuUtils.isPrime(i)) 
+			boolean isPrime=false;
+			if(faster)
+				isPrime =EuUtils.isPrime(i) ;
+			else
+				isPrime =EuUtils.isPrimeMuchSlower(i) ;
+			
+			if(isPrime)
 				total = total+i;
 		}
 		
