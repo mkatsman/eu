@@ -6,9 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class Problem10Test {
+
 
 	@Test
 	/**
@@ -20,6 +22,7 @@ public class Problem10Test {
 		Assert.assertEquals(new Long(17),
 				Long.valueOf(Problem10.sumOfPrimesUnderUpper(10, true)));
 	}
+
 
 	@Test
 	public void testIsPrime() throws FileNotFoundException, IOException {
@@ -43,6 +46,7 @@ public class Problem10Test {
 		Assert.assertTrue(counter > 0);
 	}
 
+	
 	@Test
 	public void testIsNotPrime() {
 		// negative cases
@@ -56,4 +60,6 @@ public class Problem10Test {
 		Assert.assertFalse(EuUtils.isPrime(6));
 		Assert.assertFalse(EuUtils.isPrime(102));
 	}
+
+	
 }

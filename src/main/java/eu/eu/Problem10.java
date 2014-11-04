@@ -45,7 +45,7 @@ public class Problem10 {
 			if(isPrime)
 				total = total+i;
 		}
-		
+		totalTime = (System.currentTimeMillis() -start);
 		System.out.println("total time in milliseconds is: "+ totalTime);	
 		return total;
 	

@@ -24,7 +24,7 @@ public class Problem7Test {
 	 * @throws IOException
 	 */
 	@Test
-	public void TestSequentialPrimeIndexes() throws FileNotFoundException, IOException {
+	public void testSequentialPrimeIndexes() throws FileNotFoundException, IOException {
 
 			CSVReader reader = new CSVReader();
 			// read collection of primes from a file.
