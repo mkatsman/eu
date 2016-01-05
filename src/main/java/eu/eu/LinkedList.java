@@ -1,3 +1,4 @@
+
 package eu.eu;
 
 public class LinkedList {
@@ -7,7 +8,7 @@ public class LinkedList {
 		Node n2 = new Node("Masha", n1);
 		Node n3 = new Node("Yulia", n2);
 	    Node n4 = new Node("Rebecca", n3);
-	    reverse(n4);
+	    reverse1(n4);
 	}
 	
 	public static void reverse(Node current){
@@ -26,5 +27,20 @@ public class LinkedList {
 		}
 	
 	}
+	
+	public static void reverse1(Node current){
+   		Node  temp =null;
+   		Node  previous = null;
+   		while(current!= null){
+   		System.out.println(current.value);	
+   		temp = current.next;
+   		current.next =previous;
+   		previous = current;
+   		current = temp;
+   		}
+   		
+	}
+
+	
 }
 
